@@ -1,0 +1,50 @@
+.main-body{
+    background-color: blueviolet;
+}
+
+.content-body{
+    height: 40em;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1em;
+    background-color: white;
+    padding: 1em;
+}
+
+.heading{
+    color: cadetblue;
+    text-align: center;
+}
+
+.labels{
+    color: teal;
+    
+}
+
+#id_title{
+    width: 26.2em;
+    margin-bottom: 1em;
+    margin-left: 9px;
+}
+
+
+.form-group{
+    background-color: blanchedalmond;
+    padding: 1em;
+}
+
+.task-list{
+    margin: 0%;
+}
+
+
+.single-task{
+    background-color:lightskyblue;
+    padding: 1em;
+    margin-bottom: 1px;
+}
+
+.buttons{
+    margin: 5px;
+}

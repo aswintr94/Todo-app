@@ -1,18 +1,44 @@
-<h3>To Do</h3>
-
-<form action="/" method="POST">
-    {% csrf_token %}
-    {{form.title}}
-    <input type="submit" name="Create" value="Create" id="">
-</form>
-
-{% for task in tasks %}
-    <a href="{% url 'update_task' task.id %}">Update</a>
-    <a href="{% url 'delete_task' task.id %}">Delete</a>
-    {% if task.complete == True %}
-    <strike>{{task.title}}</strike>
-    {% else %}
-    <span>{{task.title}}</span>
-    {% endif %}
-    <br>
-{% endfor %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/todo.png' %}" type="image/icon type">
+    <title>Todo app</title>
+    <link rel="stylesheet" href="{% static 'tasks.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<body class="main-body">
+    <div class="content-body">
+        <h2 class="heading">To Do App</h2>
+        <div class="form-group">
+            <form  action="/" method="POST">
+                {% csrf_token %}
+                <p class="labels">Enter a new task:</p>
+                {{form.title}}
+                <div class="text-center">
+                    <input class="btn btn-info btn-block" type="submit" name="Create" value="Create" id="">
+                </div>
+            </form>
+        </div>
+        <div class="task-list">
+            {% for task in tasks %}
+                <div class="single-task">
+                    {% if task.complete == True %}
+                    <p>{{task.title}}  <sub>Completed</sub></p>
+                    {% else %}
+                    <p>{{task.title}}</p>
+                    {% endif %}
+                    <div class="buttons">
+                        <a class="btn btn-sm btn-outline-primary" href="{% url 'update_task' task.id %}">Update</a>
+                        <a class="btn btn-sm btn-outline-danger" href="{% url 'delete_task' task.id %}">Delete</a>
+                    </div>
+                </div>
+                
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
