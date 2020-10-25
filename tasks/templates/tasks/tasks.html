@@ -11,7 +11,7 @@
     
 </head>
 <body class="main-body">
-    <div class="content-body">
+    <div class="content-body" style="height: max-content;">
         <h2 class="heading">To Do App</h2>
         <div class="form-group">
             <form  action="/" method="POST">
@@ -27,7 +27,7 @@
             {% for task in tasks %}
                 <div class="single-task">
                     {% if task.complete == True %}
-                    <p>{{task.title}}  <sub>Completed</sub></p>
+                    <p>{{task.title}}  <sub>(Completed)</sub></p>
                     {% else %}
                     <p>{{task.title}}</p>
                     {% endif %}

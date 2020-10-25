@@ -1,8 +1,25 @@
-<p>Are you sure u want to delete "{{task.title}}"?</p>
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'delete.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body class="main-body">
+    <div class="content-body">
+        <p class="question">Are you sure u want to delete "{{task.title}}"?</p>
 
-<a href="{% url 'index' %}">Cancel</a>
-
-<form action="" method="POST">
-    {% csrf_token %}
-    <input type="submit" value="Confirm" name="" id="">
-</form>
+        
+        <div class="row">
+            <form class="delete-form" action="" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Confirm" name="" id="">
+            </form>
+            <a href="{% url 'index' %}"><input type="button" class="cancel-button" value="Cancel" name="" id=""></a>
+        </div>
+    </div>
+</body>
+</html>
